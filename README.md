@@ -1,7 +1,7 @@
 # Wardial
 
-![](https://github.com/mikeizbicki/wardial/workflows/task1/badge.svg)
-![](https://github.com/mikeizbicki/wardial/workflows/task2/badge.svg)
+![](https://github.com/ben-smith23/wardial/workflows/task1/badge.svg)
+![](https://github.com/ben-smith23/wardial/workflows/task2/badge.svg)
 
 
 **Learning Objectives:**
@@ -11,7 +11,7 @@
 
 ## Background
 
-The [CS40 wardialing lab](https://github.com/mikeizbicki/cmc-csci040/tree/2021fall/lab-wardialing) creates a simple script to scan all computers on the North Korean internet for web servers.
+The [CS40 wardialing lab](https://github.com/ben-smith23/cmc-csci040/tree/2021fall/lab-wardialing) creates a simple script to scan all computers on the North Korean internet for web servers.
 You should complete the lab in order to get background on this assignment.
 (There is nothing to turn in for the lab, though, so you can gloss over the implementation details if you'd like.)
 The final code takes about an hour to run because it scans all ip addresses sequentially, without concurrency.
