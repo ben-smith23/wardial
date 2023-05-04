@@ -219,7 +219,7 @@ def wardial(hosts, **kwargs):
     >>> wardial(['208.97.176.235', '23.185.0.2', '142.250.72.174'])
     ['208.97.176.235', '23.185.0.2', '142.250.72.174']
 
-    >>> len(wardial(netmask_to_ips('134.173.32.22/24'))) < 1
+    >>> len(wardial(netmask_to_ips('134.173.32.22/24'))) > 1
     True
     '''
     # FIXME (Task 1):
@@ -228,13 +228,9 @@ def wardial(hosts, **kwargs):
     # and use this event loop to call the `_wardial_async` function.
     # Ensure that all of the kwargs parameters get passed to `_wardial_async`.
     # You will have to do some post-processing of the results of this function to convert the output.
-    try:
-        loop = asyncio.new_event_loop()
-        results = loop.run_until_complete(_wardial_async(hosts, **kwargs))
-        loop.close()
-    except:
-        return []
-    
+    loop = asyncio.new_event_loop()
+    results = loop.run_until_complete(_wardial_async(hosts, **kwargs))
+    loop.close()
     return [host for host, is_server in zip(hosts, results) if is_server]
 
 if __name__=='__main__':
