@@ -204,11 +204,9 @@ async def _wardial_async(hosts, max_connections=500, timeout=10, schema='http'):
         # The following code is "correct" in the sense that it gets the right results.
         # The problem is that it is not concurrent.
         # Modify the code to use the `asyncio.gather` function to enable concurrency.
-        results = []
-        for host in hosts:
-            results.append(await is_server_at_host(session,host))
+        tasks = [is_server_at_host(session, host) for host in hosts]
+        results = await asyncio.gather(*tasks)
         return results
-
 
 def wardial(hosts, **kwargs):
     '''
